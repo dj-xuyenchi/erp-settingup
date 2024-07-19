@@ -1,9 +1,0 @@
-spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          public-key-location: classpath:my-public-key.pub
-    user:
-      name: admin
-      password: 1231234
