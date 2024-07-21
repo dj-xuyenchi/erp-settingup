@@ -18,11 +18,12 @@ import org.springframework.web.client.RestClient;
 //@EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-    private final JwtFilter jwtFilter;
+
     @Bean
     public RestClient.Builder restClientBuilder() {
         return RestClient.builder();
     }
+
 //    @Bean
 //    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 //        http
@@ -40,10 +41,11 @@ public class SecurityConfig {
 //        ;
 //        return http.build();
 //    }
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 
 }
 

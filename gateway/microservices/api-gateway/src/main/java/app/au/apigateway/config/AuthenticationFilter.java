@@ -1,6 +1,5 @@
 package app.au.apigateway.config;
 
-
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -19,8 +18,9 @@ public class AuthenticationFilter implements GatewayFilter {
 
     @Autowired
     private RouterValidator routerValidator;
+
     @Autowired
-    private JwtFilter jwtUtil;
+    private JwtUtil jwtUtil;
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -39,9 +39,6 @@ public class AuthenticationFilter implements GatewayFilter {
         }
         return chain.filter(exchange);
     }
-
-
-    /*PRIVATE*/
 
     private Mono<Void> onError(ServerWebExchange exchange, String err, HttpStatus httpStatus) {
         ServerHttpResponse response = exchange.getResponse();
@@ -65,4 +62,3 @@ public class AuthenticationFilter implements GatewayFilter {
                 .build();
     }
 }
-

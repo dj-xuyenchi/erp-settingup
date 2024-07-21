@@ -27,6 +27,10 @@
         <module>service1</module>
         <module>service2</module>
         <module>api-gateway</module>
+        <module>server-config</module>
+        <module>auth-service</module>
+        <module>user-service</module>
+        <module>gateway-nosecurity</module>
     </modules>
     <build>
         <plugins>

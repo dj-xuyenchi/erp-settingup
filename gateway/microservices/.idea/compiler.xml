@@ -7,19 +7,32 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="auth-service" />
+        <module name="gateway-nosecurity" />
         <module name="service2" />
         <module name="api-gateway" />
         <module name="service1" />
+        <module name="user-service" />
         <module name="eureka-server" />
+        <module name="server-config" />
+        <module name="gateway-test-nosecu" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gateway-test-nosecu" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
+      <module name="auth-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="gateway-nosecurity" options="-parameters" />
+      <module name="gateway-test-nosecu" options="-parameters" />
+      <module name="server-config" options="-parameters" />
       <module name="service1" options="-parameters" />
       <module name="service2" options="-parameters" />
+      <module name="user-service" options="-parameters" />
     </option>
   </component>
 </project>
