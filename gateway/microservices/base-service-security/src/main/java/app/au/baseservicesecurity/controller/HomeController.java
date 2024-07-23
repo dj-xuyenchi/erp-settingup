@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-public class HomeController {
+public class HomeController extends  BaseController{
     private final JwtService jwtService;
 
-    @PostMapping("/ko-bao-ve/tao-moi")
+    @PostMapping("/khong-bao-ve/tao-moi")
     public ResponseEntity<?> method(@RequestBody RegisterModel model) {
         return ResponseEntity.ok(register(model));
     }
@@ -38,7 +38,7 @@ public class HomeController {
                 .build();
     }
 
-    @GetMapping("ko-bao-ve/xin-chao")
+    @GetMapping("khong-bao-ve/xin-chao")
     public ResponseEntity<?> method1() {
         return ResponseEntity.ok("Api này không có bảo vệ!");
     }

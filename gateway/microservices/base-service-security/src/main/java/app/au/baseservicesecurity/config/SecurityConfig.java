@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityConfig extends {
+public class SecurityConfig {
     private final CustomUserDetailsService customUserDetailsService;
     private final JwtRequestFilter filter;
 
@@ -29,8 +29,8 @@ public class SecurityConfig extends {
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers("/khong-bao-ve/**").permitAll()
-//                        .requestMatchers("/bao-ve/**")
-//                        .hasAnyRole("ADMIN", "USER")
+                        .requestMatchers("/bao-ve/**")
+                        .hasAnyRole("ADMIN", "USER")
                         .anyRequest()
                         .authenticated())
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
