@@ -20,6 +20,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         List<SimpleGrantedAuthority> roles = new ArrayList<>();
         //  roles.add(new SimpleGrantedAuthority("ROLE_USER"));
         roles.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-        return new User("user", "$2a$10$DowJxYX5wZq.aFVYKyyRxeF6MxRCkZ5OXysuNEmqBZyF7K7YzDqVe", roles);
+        return new User("heo con", "$2a$10$DowJxYX5wZq.aFVYKyyRxeF6MxRCkZ5OXysuNEmqBZyF7K7YzDqVe", roles);
     }
 }

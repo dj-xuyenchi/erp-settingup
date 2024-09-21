@@ -6,7 +6,7 @@ public class StringValid {
     }
 
     public static boolean isNullOrWhiteSpace(final String str) {
-        return str == null || str.trim().isEmpty();
+        return str == null || str.isBlank();
     }
 
     public static String unicode2Latin(final String str) {

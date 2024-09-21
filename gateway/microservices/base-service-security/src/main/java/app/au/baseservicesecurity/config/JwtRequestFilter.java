@@ -1,11 +1,15 @@
 package app.au.baseservicesecurity.config;
 
+import api.ResponseApi;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,6 +24,7 @@ import java.io.IOException;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     private final UserDetailsService userDetailsService;
@@ -29,44 +34,55 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
-
-        final String requestTokenHeader = request.getHeader("Authorization");
-
-        String username = null;
-        String jwtToken = null;
-
-        // JWT Token is in the form "Bearer token". Remove Bearer word and get only the Token
-        if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
-            jwtToken = requestTokenHeader.substring(7);
-            try {
-                username = jwtUtil.getUsernameFromToken(jwtToken);
-            } catch (IllegalArgumentException e) {
-                System.out.println("Unable to get JWT Token");
-            } catch (ExpiredJwtException e) {
-                System.out.println("JWT Token has expired");
-            } catch (SignatureException e) {
-                System.out.println("JWT signature does not match locally computed signature");
-            }
-        } else {
-            logger.warn("JWT Token does not begin with Bearer String");
+        String uri = request.getRequestURI();
+        // nếu không phải URI authorize thì cho đi tiếp luôn
+        if (!uri.contains("/bao-ve/")) {
+            chain.doFilter(request, response);
+            return;
         }
+        final String requestTokenHeader = request.getHeader("Authorization");
+        // Lấy thông tin đăng nhập từ token
+        if (requestTokenHeader != null && !requestTokenHeader.startsWith("Bearer ")) {
+            log.error("API call không có token đi kèm: " + uri);
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized: No token provided");
+            return;
+        }
+        String jwtToken = requestTokenHeader.substring(7);
+        Claims claims;
 
-        // Once we get the token, validate it.
-        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-
+        try {
+            claims = jwtUtil.getClaimsFromToken(jwtToken);
+        } catch (ExpiredJwtException e) {
+            log.error("Token het han: {}", ExceptionUtils.getStackTrace(e));
+            e.printStackTrace();
+            ResponseApi<String> responseApi = new ResponseApi<>();
+            responseApi.setMessage("Token het han!");
+            responseApi.setData(null);
+            response.setContentType("application/json");
+            response.setStatus(HttpServletResponse.SC_OK); // Trả về mã 200
+            response.getWriter().write(new ObjectMapper().writeValueAsString(responseApi));
+            response.getWriter().flush();
+            return;
+        } catch (SignatureException e) {
+            log.error("Chu ky khong hop le: {}", ExceptionUtils.getStackTrace(e));
+            e.printStackTrace();
+            ResponseApi<String> responseApi = new ResponseApi<>();
+            responseApi.setMessage("Chu ky khong hop le!");
+            responseApi.setData(null);
+            response.setContentType("application/json");
+            response.setStatus(HttpServletResponse.SC_OK); // Trả về mã 200
+            response.getWriter().write(new ObjectMapper().writeValueAsString(responseApi));
+            response.getWriter().flush();
+            return;
+        }
+        String username = claims.getSubject();
+        if (SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
-
-            // if token is valid configure Spring Security to manually set authentication
-            if (jwtUtil.validateToken(jwtToken)) {
-
-                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
-                        userDetails, null, userDetails.getAuthorities());
-                usernamePasswordAuthenticationToken
-                        .setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                // After setting the Authentication in the context, we specify
-                // that the current user is authenticated. So it passes the Spring Security Configurations successfully.
-                SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-            }
+            // If token is valid configure Spring Security to manually set authentication
+            UsernamePasswordAuthenticationToken authentication =
+                    new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
         }
         chain.doFilter(request, response);
     }

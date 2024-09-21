@@ -1,0 +1,174 @@
+2024-09-21 20:57:03 INFO  [o.e.a.AuthServiceApplication] - Starting AuthServiceApplication using Java 17.0.12 with PID 8784 (/Users/quanganhdo/Documents/17Lab/gate/gateway/microservices/auth-service/target/classes started by quanganhdo in /Users/quanganhdo/Documents/17Lab/gate/gateway/microservices)
+2024-09-21 20:57:03 INFO  [o.e.a.AuthServiceApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-09-21 20:57:03 INFO  [o.s.cloud.context.scope.GenericScope] - BeanFactory id=9b19cdc8-cb29-34f7-9c83-60b428dc3c2f
+2024-09-21 20:57:03 WARN  [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-09-21 20:57:03 WARN  [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-09-21 20:57:03 INFO  [o.s.b.w.e.tomcat.TomcatWebServer] - Tomcat initialized with port 9004 (http)
+2024-09-21 20:57:03 INFO  [o.a.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-9004"]
+2024-09-21 20:57:03 INFO  [o.a.catalina.core.StandardService] - Starting service [Tomcat]
+2024-09-21 20:57:03 INFO  [o.a.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-21 20:57:03 INFO  [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-09-21 20:57:03 INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 353 ms
+2024-09-21 20:57:03 INFO  [o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration] - Eureka HTTP Client uses RestTemplate.
+2024-09-21 20:57:03 WARN  [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-09-21 20:57:03 INFO  [o.s.c.n.eureka.InstanceInfoFactory] - Setting initial instance status as: STARTING
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Initializing Eureka in region us-east-1
+2024-09-21 20:57:03 INFO  [c.n.d.s.r.aws.ConfigClusterResolver] - Resolving eureka endpoints via configuration
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Disable delta property : false
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Single vip registry refresh property : null
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Force full registry fetch : false
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Application is null : false
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Registered Applications size is zero : true
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Application version is -1: true
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Getting all instance registry info from the eureka server
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - The response status is 200
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Starting heartbeat executor: renew interval is: 30
+2024-09-21 20:57:03 INFO  [c.n.discovery.InstanceInfoReplicator] - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Discovery Client initialized at timestamp 1726927023965 with initial instances count: 1
+2024-09-21 20:57:03 INFO  [o.s.c.n.e.s.EurekaServiceRegistry] - Registering application AUTH-SERVICE with eureka with status UP
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Saw local status change event StatusChangeEvent [timestamp=1726927023966, current=UP, previous=STARTING]
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004: registering service...
+2024-09-21 20:57:03 INFO  [o.a.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-9004"]
+2024-09-21 20:57:03 INFO  [o.s.c.n.e.s.EurekaServiceRegistry] - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Saw local status change event StatusChangeEvent [timestamp=1726927023968, current=DOWN, previous=UP]
+2024-09-21 20:57:03 WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Shutting down DiscoveryClient ...
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004 - registration status: 204
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004: registering service...
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004 - registration status: 204
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Unregistering ...
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004 - deregister  status: 200
+2024-09-21 20:57:03 INFO  [c.netflix.discovery.DiscoveryClient] - Completed shut down of DiscoveryClient
+2024-09-21 20:57:03 INFO  [o.s.b.a.l.ConditionEvaluationReportLogger] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-21 20:57:04 ERROR [o.s.b.d.LoggingFailureAnalysisReporter] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 9004 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 9004 or configure this application to listen on another port.
+
+2024-09-21 20:57:11 INFO  [o.e.a.AuthServiceApplication] - Starting AuthServiceApplication using Java 17.0.12 with PID 8788 (/Users/quanganhdo/Documents/17Lab/gate/gateway/microservices/auth-service/target/classes started by quanganhdo in /Users/quanganhdo/Documents/17Lab/gate/gateway/microservices)
+2024-09-21 20:57:11 INFO  [o.e.a.AuthServiceApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-09-21 20:57:12 INFO  [o.s.cloud.context.scope.GenericScope] - BeanFactory id=9b19cdc8-cb29-34f7-9c83-60b428dc3c2f
+2024-09-21 20:57:12 WARN  [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-09-21 20:57:12 WARN  [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-09-21 20:57:12 INFO  [o.s.b.w.e.tomcat.TomcatWebServer] - Tomcat initialized with port 9004 (http)
+2024-09-21 20:57:12 INFO  [o.a.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-9004"]
+2024-09-21 20:57:12 INFO  [o.a.catalina.core.StandardService] - Starting service [Tomcat]
+2024-09-21 20:57:12 INFO  [o.a.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-21 20:57:12 INFO  [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-09-21 20:57:12 INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 350 ms
+2024-09-21 20:57:12 INFO  [o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration] - Eureka HTTP Client uses RestTemplate.
+2024-09-21 20:57:12 WARN  [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-09-21 20:57:12 INFO  [o.s.c.n.eureka.InstanceInfoFactory] - Setting initial instance status as: STARTING
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Initializing Eureka in region us-east-1
+2024-09-21 20:57:12 INFO  [c.n.d.s.r.aws.ConfigClusterResolver] - Resolving eureka endpoints via configuration
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Disable delta property : false
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Single vip registry refresh property : null
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Force full registry fetch : false
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Application is null : false
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Registered Applications size is zero : true
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Application version is -1: true
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Getting all instance registry info from the eureka server
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - The response status is 200
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Starting heartbeat executor: renew interval is: 30
+2024-09-21 20:57:12 INFO  [c.n.discovery.InstanceInfoReplicator] - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Discovery Client initialized at timestamp 1726927032723 with initial instances count: 1
+2024-09-21 20:57:12 INFO  [o.s.c.n.e.s.EurekaServiceRegistry] - Registering application AUTH-SERVICE with eureka with status UP
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Saw local status change event StatusChangeEvent [timestamp=1726927032724, current=UP, previous=STARTING]
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004: registering service...
+2024-09-21 20:57:12 INFO  [o.a.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-9004"]
+2024-09-21 20:57:12 INFO  [o.s.c.n.e.s.EurekaServiceRegistry] - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Saw local status change event StatusChangeEvent [timestamp=1726927032729, current=DOWN, previous=UP]
+2024-09-21 20:57:12 WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Shutting down DiscoveryClient ...
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004 - registration status: 204
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004: registering service...
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004 - registration status: 204
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Unregistering ...
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004 - deregister  status: 200
+2024-09-21 20:57:12 INFO  [c.netflix.discovery.DiscoveryClient] - Completed shut down of DiscoveryClient
+2024-09-21 20:57:12 INFO  [o.s.b.a.l.ConditionEvaluationReportLogger] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-21 20:57:12 ERROR [o.s.b.d.LoggingFailureAnalysisReporter] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 9004 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 9004 or configure this application to listen on another port.
+
+2024-09-21 20:57:28 INFO  [o.e.a.AuthServiceApplication] - Starting AuthServiceApplication using Java 17.0.12 with PID 8791 (/Users/quanganhdo/Documents/17Lab/gate/gateway/microservices/auth-service/target/classes started by quanganhdo in /Users/quanganhdo/Documents/17Lab/gate/gateway/microservices)
+2024-09-21 20:57:28 INFO  [o.e.a.AuthServiceApplication] - No active profile set, falling back to 1 default profile: "default"
+2024-09-21 20:57:28 INFO  [o.s.cloud.context.scope.GenericScope] - BeanFactory id=9b19cdc8-cb29-34f7-9c83-60b428dc3c2f
+2024-09-21 20:57:28 WARN  [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-09-21 20:57:28 WARN  [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-09-21 20:57:28 INFO  [o.s.b.w.e.tomcat.TomcatWebServer] - Tomcat initialized with port 9004 (http)
+2024-09-21 20:57:28 INFO  [o.a.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-9004"]
+2024-09-21 20:57:28 INFO  [o.a.catalina.core.StandardService] - Starting service [Tomcat]
+2024-09-21 20:57:28 INFO  [o.a.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-21 20:57:28 INFO  [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2024-09-21 20:57:28 INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 345 ms
+2024-09-21 20:57:28 INFO  [o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration] - Eureka HTTP Client uses RestTemplate.
+2024-09-21 20:57:28 WARN  [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-09-21 20:57:28 INFO  [o.s.c.n.eureka.InstanceInfoFactory] - Setting initial instance status as: STARTING
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - Initializing Eureka in region us-east-1
+2024-09-21 20:57:28 INFO  [c.n.d.s.r.aws.ConfigClusterResolver] - Resolving eureka endpoints via configuration
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - Disable delta property : false
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - Single vip registry refresh property : null
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - Force full registry fetch : false
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - Application is null : false
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - Registered Applications size is zero : true
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - Application version is -1: true
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - Getting all instance registry info from the eureka server
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - The response status is 200
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - Starting heartbeat executor: renew interval is: 30
+2024-09-21 20:57:28 INFO  [c.n.discovery.InstanceInfoReplicator] - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-09-21 20:57:28 INFO  [c.netflix.discovery.DiscoveryClient] - Discovery Client initialized at timestamp 1726927048997 with initial instances count: 1
+2024-09-21 20:57:28 INFO  [o.s.c.n.e.s.EurekaServiceRegistry] - Registering application AUTH-SERVICE with eureka with status UP
+2024-09-21 20:57:29 INFO  [c.netflix.discovery.DiscoveryClient] - Saw local status change event StatusChangeEvent [timestamp=1726927049000, current=UP, previous=STARTING]
+2024-09-21 20:57:29 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004: registering service...
+2024-09-21 20:57:29 INFO  [o.a.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-9004"]
+2024-09-21 20:57:29 INFO  [o.s.c.n.e.s.EurekaServiceRegistry] - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2024-09-21 20:57:29 INFO  [c.netflix.discovery.DiscoveryClient] - Saw local status change event StatusChangeEvent [timestamp=1726927049004, current=DOWN, previous=UP]
+2024-09-21 20:57:29 WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-09-21 20:57:29 INFO  [c.netflix.discovery.DiscoveryClient] - Shutting down DiscoveryClient ...
+2024-09-21 20:57:29 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004 - registration status: 204
+2024-09-21 20:57:29 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004: registering service...
+2024-09-21 20:57:29 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004 - registration status: 204
+2024-09-21 20:57:29 INFO  [c.netflix.discovery.DiscoveryClient] - Unregistering ...
+2024-09-21 20:57:29 INFO  [c.netflix.discovery.DiscoveryClient] - DiscoveryClient_AUTH-SERVICE/mbp-cua-quang-2:auth-service:9004 - deregister  status: 200
+2024-09-21 20:57:29 INFO  [c.netflix.discovery.DiscoveryClient] - Completed shut down of DiscoveryClient
+2024-09-21 20:57:29 INFO  [o.s.b.a.l.ConditionEvaluationReportLogger] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-21 20:57:29 ERROR [o.s.b.d.LoggingFailureAnalysisReporter] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 9004 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 9004 or configure this application to listen on another port.
+

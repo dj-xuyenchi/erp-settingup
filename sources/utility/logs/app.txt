@@ -1,0 +1,13 @@
+2024-09-21 13:55:56 ERROR [common.QueryCommon] - Cannot invoke "org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.query(String, org.springframework.jdbc.core.namedparam.SqlParameterSource, org.springframework.jdbc.core.RowMapper)" because "template" is null
+2024-09-21 13:56:52 ERROR [common.QueryCommon] - java.lang.NullPointerException: Cannot invoke "org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.query(String, org.springframework.jdbc.core.namedparam.SqlParameterSource, org.springframework.jdbc.core.RowMapper)" because "template" is null
+2024-09-21 13:57:13 ERROR [common.QueryCommon] - [Ljava.lang.StackTraceElement;@1460a8c0
+2024-09-21 13:57:38 ERROR [common.QueryCommon] - [Ljava.lang.StackTraceElement;@1460a8c0
+2024-09-21 13:58:11 ERROR [common.QueryCommon] - 
+java.lang.NullPointerException: Cannot invoke "org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.query(String, org.springframework.jdbc.core.namedparam.SqlParameterSource, org.springframework.jdbc.core.RowMapper)" because "template" is null
+	at common.QueryCommon.getNextVal(QueryCommon.java:24)
+	at common.QueryCommon.main(QueryCommon.java:13)
+2024-09-21 14:00:33 ERROR [common.QueryCommon] - Khong lay duoc nextval: .nextval
+
+java.lang.NullPointerException: Cannot invoke "org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.query(String, org.springframework.jdbc.core.namedparam.SqlParameterSource, org.springframework.jdbc.core.RowMapper)" because "template" is null
+	at common.QueryCommon.getNextVal(QueryCommon.java:24)
+	at common.QueryCommon.main(QueryCommon.java:13)

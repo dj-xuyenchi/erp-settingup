@@ -1,51 +1,45 @@
 package app.au.baseservicesecurity.config;
 
-import app.au.baseservicesecurity.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
+
 @Component
+@Slf4j
 public class JwtService {
     @Value("${jwt.secret}")
     private String secretKey;
+    private Key key;
 
-    public String generateToken(User user) {
-        return Jwts
-                .builder()
-                .setSubject(user.getName())
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
-                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
-                .compact();
+    @PostConstruct
+    public void init() {
+        key = Keys.hmacShaKeyFor(secretKey.getBytes());
     }
 
-    private Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
-        return Keys.hmacShaKeyFor(keyBytes);
+
+    public Claims getClaimsFromToken(String token) {
+        try {
+            return Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("{}", ExceptionUtils.getStackTrace(e));
+            throw e;
+        }
     }
 
-    public String getUsernameFromToken(String token) {
-        Claims claims = Jwts.parser()
-                .setSigningKey(secretKey)
-                .parseClaimsJws(token)
-                .getBody();
-
-        return claims.getSubject();
-    }
-
-    public boolean validateToken(String token) {
-        Claims claims = Jwts.parser()
-                .setSigningKey(secretKey)
-                .parseClaimsJws(token)
-                .getBody();
-
+    public boolean validateToken(Claims claims) {
         return !claims.getExpiration().before(new Date());
     }
 }

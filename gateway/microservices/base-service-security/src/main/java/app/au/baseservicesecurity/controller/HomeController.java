@@ -15,30 +15,10 @@ import org.springframework.web.bind.annotation.*;
 public class HomeController extends  BaseController{
     private final JwtService jwtService;
 
-    @PostMapping("/khong-bao-ve/tao-moi")
-    public ResponseEntity<?> method(@RequestBody RegisterModel model) {
-        return ResponseEntity.ok(register(model));
-    }
 
-    public AuthenticationResponse register(RegisterModel request) {
-        User newUser = new User();
-        newUser.setName(request.getUserName());
-        newUser.setPassword(request.getPassword());
-        newUser.setEmail(request.getEmail());
-        String jwtToken = jwtService.generateToken(newUser);
-        Token token = Token.builder()
-                .userId(newUser.getId())
-                .token(jwtToken)
-                .expired(false)
-                .revoked(false)
-                .build();
-        return AuthenticationResponse.builder()
-                .userDto(newUser)
-                .token(token)
-                .build();
-    }
 
-    @GetMapping("khong-bao-ve/xin-chao")
+
+    @GetMapping("/khong-bao-ve/xin-chao")
     public ResponseEntity<?> method1() {
         return ResponseEntity.ok("Api này không có bảo vệ!");
     }
@@ -50,6 +30,7 @@ public class HomeController extends  BaseController{
     }
 
     @GetMapping("/bao-ve/employee")
+    @PreAuthorize("hasAuthority('ROLE_EMPLOYEE')")
     public ResponseEntity<?> method3() {
         return ResponseEntity.ok("Api này chỉ có nhân viên vào được!");
     }
